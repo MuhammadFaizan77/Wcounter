@@ -35,12 +35,7 @@ export default function TextForm(props) {
 
     const copytxt = () => {
 
-        let cptext = document.createElement('textarea')
-        cptext.innerText = text
-        document.body.appendChild(cptext)
-        cptext.select()
-        document.execCommand('copy')
-        cptext.remove('copy')
+        navigator.clipboard.writeText(text)
         props.showAlert('Text Copied', 'Success')
     }
 
@@ -73,19 +68,19 @@ export default function TextForm(props) {
                     <textarea className="form-control" style={{ backgroundColor: props.mode === 'dark' ? '#252239' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} placeholder="Enter your text " onChange={handleonChange} id="mybox" rows="10"></textarea>
 
                 </div>
-                <button className="btn btn-primary " onClick={upperCase}>UPPERCASE</button>
-                <button className="btn btn-warning mx-2" onClick={lowerCase}>lowercase</button>
-                <button className="btn btn-success mx-2" onClick={FUletter}> Sentence case</button>
-                <button className="btn btn-danger mx-2" onClick={reverse}> esrever order</button>
-                <button className="btn btn-dark mx-2" onClick={rexs}> Remove extra Spaces</button>
+                <button disabled={text.length === 0} className="btn btn-primary " onClick={upperCase}>UPPERCASE</button>
+                <button disabled={text.length === 0} className="btn btn-warning mx-2" onClick={lowerCase}>lowercase</button>
+                <button disabled={text.length === 0} className="btn btn-success mx-2" onClick={FUletter}> Sentence case</button>
+                <button disabled={text.length === 0} className="btn btn-danger mx-2" onClick={reverse}> esrever order</button>
+                <button disabled={text.length === 0} className="btn btn-dark mx-2" onClick={rexs}> Remove extra Spaces</button>
 
 
 
             </div>
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2>Text Summary</h2>
-                <p>Total {text.split(" ").length} words and {text.length} characters</p>
-                <p>Total Read Time: {0.008 * text.split(" ").length} </p>
+                <p>Total {text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
+                <p>Total Read Time: {0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} </p>
                 <h3>Preview</h3>
                 <p>{text.length > 0 ? text : "Please Enter Text to Preview"}</p>
 

@@ -37,7 +37,7 @@ function App() {
       <Navbar title="Wcounter" mode={mode} toggleMode={toggleMode} about="About us" />
       <Alert alert={alert} />
       <div className="container my-3" >
-        <TextForm showAlert={showAlert} heading="Enter your Text Below" mode={mode} />
+        <TextForm showAlert={showAlert} heading="Try - Wcounter App" mode={mode} />
       </div>
     </>
   );
