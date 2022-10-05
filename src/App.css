@@ -1,0 +1,58 @@
+.icon {
+    padding: 30px;
+    margin-bottom: 30;
+    margin-left: 51em;
+    font-size: larger;
+    color: black;
+    margin-top: -9px;
+    position: absolute;
+    padding: 1em;
+    padding-left: 2em;
+
+}
+
+#copy {
+    padding-left: 4px;
+
+
+}
+
+@keyframes copy {
+    from {
+        color: blue;
+    }
+
+    to {
+        color: red;
+    }
+}
+
+#copy:hover {
+    /* color: rgb(245, 214, 214); */
+    cursor: pointer;
+    animation-name: copy;
+    animation-duration: 2s;
+}
+
+@keyframes cross {
+    from {
+        color: yellow;
+    }
+
+    to {
+        color: blue;
+    }
+}
+
+#cross:hover {
+    animation-name: cross;
+    animation-duration: 2s;
+    /* color: blue; */
+    cursor: pointer;
+}
+
+#dark {
+    font-size: x-large;
+    cursor: pointer;
+
+}
