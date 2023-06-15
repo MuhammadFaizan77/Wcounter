@@ -1,4 +1,4 @@
-#view my WordCounter App on given link
+#View my Wcounter App on given link
 
 https://muhammadfaizan77.github.io/Wcounter/
 
